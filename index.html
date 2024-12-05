@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de comentarios</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor">
+            <section class="cont-video">
+                <h2>Chica del lo-fi</h2>
+                <div id="frame"></div>
+            </section>
+            <section class="cont-comment">
+                <form onsubmit="agregar_comentario(event)">
+                    <label for="input-comment">Comentarios</label>
+                    <textarea id="input-comment" placeholder="Las lamparas deberían ser eternas" required></textarea>
+                    <button type="submit">Comentar</button>
+                </form>
+                <div id="cont-comments">
+                    <div class="comment"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
