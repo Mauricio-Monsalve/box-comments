@@ -15,7 +15,6 @@
     font-family: Lexend, Arial, sans-serif;
     list-style: none;
     text-decoration: none;
-    border: none;
 }
 
 body {
@@ -167,10 +166,17 @@ h2 {
     display: flex;
     margin-left: auto;
     position: relative;
+    width: calc( var(--icon-size) / 1.5 );
+    aspect-ratio: 1/1;
+    background-image: url("./images/three-dots-vertical.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.comment .user-comment .menu-comment > img {
-    width: calc( var(--icon-size) / 1.5 );
+.comment .user-comment .menu-comment > input[type="checkbox"] {
+    position: relative;
+    opacity: 0;
 }
 
 .comment .user-comment .menu-comment ul {
@@ -183,6 +189,19 @@ h2 {
     border-radius: 5px;
     border-top-right-radius: 0;
     overflow: hidden;
+    visibility: hidden;
+}
+
+.comment .user-comment .menu-comment > input[type="checkbox"]:checked ~ ul {
+    visibility: visible;
+}
+
+.comment .user-comment .menu-comment > input[type="checkbox"]:checked {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
 }
 
 .comment .user-comment .menu-comment li {
@@ -249,7 +268,7 @@ h2 {
 }
 
 .comment .reaction-comment > label:nth-child(4):has( input[type="checkbox"]:checked ) {
-    background-image: url("./images/images/suit-heart-fill.svg");
+    background-image: url("./images/suit-heart-fill.svg");
 }
 
 @media screen and (width>400px) {
