@@ -3,6 +3,7 @@
     --subtitle-text-size: small;
     --normal-text-size: x-small;
     --icon-size: 25px;
+    --reaction-image: ".images/";
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -200,6 +201,55 @@ h2 {
 
 .comment .text-comment {
     font-size: var(--normal-text-size);
+}
+
+.comment .reaction-comment {
+    display: flex;
+    gap: calc( var(--icon-size) / 3 );
+}
+
+.comment .reaction-comment > label {
+    width: calc( var(--icon-size) / 1.5 );
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.comment .reaction-comment > label:nth-child(1) {
+    background-image: url("./images/hand-thumbs-up.svg");
+}
+
+.comment .reaction-comment > label:nth-child(2) {
+    background-image: url("./images/hand-thumbs-down.svg");
+}
+
+.comment .reaction-comment > label:nth-child(3) {
+    background-image: url("./images/chat-left-text.svg");
+}
+
+.comment .reaction-comment > label:nth-child(4) {
+    background-image: url("./images/suit-heart.svg");
+}
+
+.comment .reaction-comment > label > input[type="checkbox"] {
+    display: none;
+}
+
+.comment .reaction-comment > label:nth-child(1):has( input[type="checkbox"]:checked ) {
+    background-image: url("./images/hand-thumbs-up-fill.svg");
+}
+
+.comment .reaction-comment > label:nth-child(2):has( input[type="checkbox"]:checked ) {
+    background-image: url("./images/hand-thumbs-down-fill.svg");
+}
+
+.comment .reaction-comment > label:nth-child(3):has( input[type="checkbox"]:checked ) {
+    background-image: url("./images/chat-left-text-fill.svg");
+}
+
+.comment .reaction-comment > label:nth-child(4):has( input[type="checkbox"]:checked ) {
+    background-image: url("./images/images/suit-heart-fill.svg");
 }
 
 @media screen and (width>400px) {
