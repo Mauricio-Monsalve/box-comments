@@ -27,6 +27,10 @@ body {
     background-color: #eee;
 }
 
+button {
+    user-select: none;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -90,6 +94,7 @@ h2 {
     font-size: var(--subtitle-text-size);
     font-weight: bold;
     margin-right: auto;
+    user-select: none;
 }
 
 .cont-comment form textarea {
@@ -115,6 +120,7 @@ h2 {
     padding: 5px 10px;
     font-size: var(--subtitle-text-size);
     transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .cont-comment form button:hover {
@@ -143,6 +149,16 @@ h2 {
     padding: 10px;
 }
 
+.comment.comment-deleted {
+    background-color: #f5f5f5;
+    text-decoration: line-through;
+    user-select: none;
+}
+
+.comment.comment-reported {
+    background-color: red;
+}
+
 .comment .user-comment {
     display: flex;
     align-items: center;
@@ -151,6 +167,7 @@ h2 {
 
 .comment .user-comment > img {
     width: var(--icon-size);
+    cursor: pointer;
 }
 
 .comment .user-comment a {
@@ -169,9 +186,17 @@ h2 {
     width: calc( var(--icon-size) / 1.5 );
     aspect-ratio: 1/1;
     background-image: url("./images/three-dots-vertical.svg");
-    background-size: contain;
+    background-size: calc( var(--icon-size) / 1.5 );
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: calc( var(--icon-size) / 2 );
+    user-select: none;
+}
+
+.comment .user-comment .menu-comment:hover {
+    background-color: #eee;
 }
 
 .comment .user-comment .menu-comment > input[type="checkbox"] {
@@ -220,6 +245,7 @@ h2 {
 
 .comment .text-comment {
     font-size: var(--normal-text-size);
+    overflow-wrap: break-word;
 }
 
 .comment .reaction-comment {
@@ -232,7 +258,13 @@ h2 {
     aspect-ratio: 1/1;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: calc( var(--icon-size) / 2 );
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.comment .reaction-comment > label:hover {
+    opacity: 1 !important;
 }
 
 .comment .reaction-comment > label:nth-child(1) {
@@ -253,6 +285,10 @@ h2 {
 
 .comment .reaction-comment > label > input[type="checkbox"] {
     display: none;
+}
+
+.comment .reaction-comment > label:has( input[type="checkbox"]:checked ) {
+    opacity: 0.75;
 }
 
 .comment .reaction-comment > label:nth-child(1):has( input[type="checkbox"]:checked ) {
