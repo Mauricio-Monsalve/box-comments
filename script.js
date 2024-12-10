@@ -28,6 +28,8 @@ function agregar_comentario(event) {
         return;
     }
 
+    document.getElementById("input-comment").value = "";
+    
     comment_template.user = "User-name";
     comment_template.image = "./images/person-circle.svg";
     comment_template.comment = comment;

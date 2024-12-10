@@ -215,6 +215,7 @@ h2 {
     border-top-right-radius: 0;
     overflow: hidden;
     visibility: hidden;
+    z-index: 1;
 }
 
 .comment .user-comment .menu-comment > input[type="checkbox"]:checked ~ ul {
